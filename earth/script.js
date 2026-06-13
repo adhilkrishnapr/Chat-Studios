@@ -14,9 +14,14 @@ document.body.appendChild(renderer.domElement);
 // Earth sphere
 const geometry = new THREE.SphereGeometry(2, 64, 64);
 
-// Simple blue material for now
+const textureLoader = new THREE.TextureLoader();
+
+const earthTexture = textureLoader.load(
+  'https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg'
+);
+
 const material = new THREE.MeshPhongMaterial({
-    color: 0x2266ff
+  map: earthTexture
 });
 
 const earth = new THREE.Mesh(geometry, material);
