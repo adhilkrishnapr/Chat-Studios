@@ -29,6 +29,21 @@ const material = new THREE.MeshPhongMaterial({
 const earth = new THREE.Mesh(geometry, material);
 scene.add(earth);
 
+const atmosphereGeometry = new THREE.SphereGeometry(5.15, 64, 64);
+
+const atmosphereMaterial = new THREE.MeshBasicMaterial({
+    color: 0x66aaff,
+    transparent: true,
+    opacity: 0.15
+});
+
+const atmosphere = new THREE.Mesh(
+    atmosphereGeometry,
+    atmosphereMaterial
+);
+
+scene.add(atmosphere);
+
 // Light (Sun)
 const light = new THREE.DirectionalLight(0xffffff, 2);
 light.position.set(5, 3, 5);
@@ -69,6 +84,8 @@ function animate() {
     requestAnimationFrame(animate);
 
     earth.rotation.y += 0.002;
+
+    atmosphere.rotation.y += 0.002;
 
     renderer.render(scene, camera);
 }
