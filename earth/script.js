@@ -1,5 +1,7 @@
 const scene = new THREE.Scene();
 
+scene.background = new THREE.Color(0x000000);
+
 const camera = new THREE.PerspectiveCamera(
     75,
     window.innerWidth / window.innerHeight,
@@ -36,6 +38,31 @@ scene.add(light);
 scene.add(new THREE.AmbientLight(0x222222));
 
 camera.position.z = 6;
+
+// Create stars
+const starGeometry = new THREE.BufferGeometry();
+const starCount = 5000;
+
+const positions = [];
+
+for (let i = 0; i < starCount; i++) {
+    positions.push((Math.random() - 0.5) * 2000);
+    positions.push((Math.random() - 0.5) * 2000);
+    positions.push((Math.random() - 0.5) * 2000);
+}
+
+starGeometry.setAttribute(
+    'position',
+    new THREE.Float32BufferAttribute(positions, 3)
+);
+
+const starMaterial = new THREE.PointsMaterial({
+    size: 1,
+    color: 0xffffff
+});
+
+const stars = new THREE.Points(starGeometry, starMaterial);
+scene.add(stars);
 
 // Animation loop
 function animate() {
