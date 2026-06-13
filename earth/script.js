@@ -57,7 +57,7 @@ starGeometry.setAttribute(
 );
 
 const starMaterial = new THREE.PointsMaterial({
-    size: 1,
+    size: 3,
     color: 0xffffff
 });
 
