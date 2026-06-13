@@ -34,7 +34,7 @@ const atmosphereGeometry = new THREE.SphereGeometry(2.05, 64, 64);
 const atmosphereMaterial = new THREE.MeshBasicMaterial({
     color: 0x66aaff,
     transparent: true,
-    opacity: 0.35
+    opacity: 0.15
 });
 
 const atmosphere = new THREE.Mesh(
