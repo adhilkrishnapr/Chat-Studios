@@ -29,7 +29,7 @@ const material = new THREE.MeshPhongMaterial({
 const earth = new THREE.Mesh(geometry, material);
 scene.add(earth);
 
-const atmosphereGeometry = new THREE.SphereGeometry(5.3, 64, 64);
+const atmosphereGeometry = new THREE.SphereGeometry(2.05, 64, 64);
 
 const atmosphereMaterial = new THREE.MeshBasicMaterial({
     color: 0x66aaff,
